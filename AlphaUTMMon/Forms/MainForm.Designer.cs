@@ -32,19 +32,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.utmParamBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescriptionConnectionState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConnectionString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uTMConnectionStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utmParamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.TSB_Add = new System.Windows.Forms.ToolStripButton();
+            this.TSB_Edit = new System.Windows.Forms.ToolStripButton();
+            this.TSB_Refresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utmParamBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utmParamsBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +81,7 @@
             this.ConnectionString,
             this.dataGridViewTextBoxColumn2,
             this.uTMConnectionStateDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.utmParamBindingSource1;
+            this.dataGridView1.DataSource = this.utmParamsBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -87,29 +89,6 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(800, 425);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // utmParamBindingSource1
-            // 
-            this.utmParamBindingSource1.DataSource = typeof(AMcore.Models.UtmParam);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(35, 25);
-            this.toolStrip1.TabIndex = 0;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -146,6 +125,51 @@
             this.uTMConnectionStateDataGridViewTextBoxColumn.Name = "uTMConnectionStateDataGridViewTextBoxColumn";
             this.uTMConnectionStateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // utmParamsBindingSource
+            // 
+            this.utmParamsBindingSource.DataSource = typeof(AMcore.Models.UtmParam);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSB_Add,
+            this.TSB_Edit,
+            this.TSB_Refresh});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(112, 25);
+            this.toolStrip1.TabIndex = 0;
+            // 
+            // TSB_Add
+            // 
+            this.TSB_Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSB_Add.Image = ((System.Drawing.Image)(resources.GetObject("TSB_Add.Image")));
+            this.TSB_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSB_Add.Name = "TSB_Add";
+            this.TSB_Add.Size = new System.Drawing.Size(23, 22);
+            this.TSB_Add.Text = "Add";
+            this.TSB_Add.Click += new System.EventHandler(this.TSB_Add_Click);
+            // 
+            // TSB_Edit
+            // 
+            this.TSB_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSB_Edit.Image = ((System.Drawing.Image)(resources.GetObject("TSB_Edit.Image")));
+            this.TSB_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSB_Edit.Name = "TSB_Edit";
+            this.TSB_Edit.Size = new System.Drawing.Size(23, 22);
+            this.TSB_Edit.Text = "toolStripButton1";
+            // 
+            // TSB_Refresh
+            // 
+            this.TSB_Refresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSB_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("TSB_Refresh.Image")));
+            this.TSB_Refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSB_Refresh.Name = "TSB_Refresh";
+            this.TSB_Refresh.Size = new System.Drawing.Size(23, 22);
+            this.TSB_Refresh.Text = "Обновить стостояние";
+            this.TSB_Refresh.Click += new System.EventHandler(this.TSB_Refresh_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -160,7 +184,7 @@
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utmParamBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utmParamsBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -171,17 +195,19 @@
 
         private ToolStripContainer toolStripContainer1;
         private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
+        private ToolStripButton TSB_Add;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn fSRARIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn connectionAddressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn connectionPortDataGridViewTextBoxColumn;
-        private BindingSource utmParamBindingSource1;
+        private BindingSource utmParamsBindingSource;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn DescriptionConnectionState;
         private DataGridViewTextBoxColumn ConnectionString;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn uTMConnectionStateDataGridViewTextBoxColumn;
+        private ToolStripButton TSB_Edit;
+        private ToolStripButton TSB_Refresh;
     }
 }

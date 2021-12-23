@@ -24,16 +24,18 @@ namespace AMTests.ModelsTests
         [TestMethod]
         [DataRow("020000030843", "127.0.0.1", -1)]
         [DataRow("020000030843", "127.0.0.1", 65536)]
-        [DataRow("020000030843", "127.0.a.1", 8080)]
-        [DataRow("020000030843", "127.0.256.1", 8080)]
         public void UtmParam_NotValidConnetionString_ArgumentException(string fsrarID, string connectionAddress, int connectionPort)
         {
             Assert.ThrowsException<ArgumentException>(() => { _=new UtmParam(fsrarID, connectionAddress, connectionPort); });
         }
         [TestMethod]
-        public void UtmParam_ValidUtmParam_NormalExit()
+        [DataRow("020000030873", "127.0.0.1", 8080)]
+        [DataRow("020000030873", "alpha.ru", 8080)]
+        public void UtmParam_ValidUtmParam_NormalExit(string fsrarID, string connectionAddress, int connectionPort)
         {
-            Assert.IsNotNull(new UtmParam("020000030873", "127.0.0.1", 8080));
+            UtmParam utmParam = new (fsrarID, connectionAddress, connectionPort);
+            Assert.IsNotNull(utmParam);
+            Assert.AreEqual($"{connectionAddress}:{connectionPort}", utmParam.ConnectionString);
         }
     }
 }

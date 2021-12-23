@@ -12,6 +12,8 @@ namespace AMcore.Extensions
         public static string GetEnumDescription(this Enum enumValue)
         {
             var fieldInfo = enumValue.GetType().GetField(enumValue.ToString());
+            if (fieldInfo == null) 
+                return enumValue.ToString();
 
             var descriptionAttributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
 

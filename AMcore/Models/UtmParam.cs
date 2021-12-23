@@ -1,19 +1,14 @@
 ﻿using AMcore.Extensions;
 using AMcore.Models.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AMcore.Models
 {
     public class UtmParam
     {
         private string fsrarID = string.Empty;
-        private int connectionPort;
 
+        public UtmParam() { }
         public UtmParam(string fsrarID, string connectionAddress, int connectionPort)
         {
             FSRARID=fsrarID;
@@ -37,22 +32,29 @@ namespace AMcore.Models
             }
         }
 
-        private string connectionString;
-        private readonly string descriptionConnectionState;
 
         /// <summary>
         /// Адрес УТМ
         /// </summary>
-        public string ConnectionString { get => connectionString; private set => connectionString = value; }
+        public string ConnectionString => $"{ConnectionAddress}:{ConnectionPort}";
+        /// <summary>
+        /// Адрес
+        /// </summary>
+        public string? ConnectionAddress { private set; get; }
+        /// <summary>
+        /// Порт
+        /// </summary>
+        public int ConnectionPort { private set; get; }
 
         /// <summary>
         /// Адрес УТМ
         /// </summary>
         public void SetConnectionString(string connectionAddress, int connectionPort)
         {
-            if (!IPEndPoint.TryParse($"{connectionAddress}:{connectionPort}", out IPEndPoint ip))
-                throw new ArgumentException($"Не допустимая строка подключения;");
-            connectionString=$"{connectionAddress}:{connectionPort}";
+            if (connectionPort < 0 || connectionPort > 65535)
+                throw new ArgumentException($"Не допустимая строка подключения.");
+            ConnectionAddress = connectionAddress;
+            ConnectionPort = connectionPort;
         }
         /// <summary>
         /// Наименование организации
