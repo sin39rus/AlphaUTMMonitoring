@@ -1,5 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using AMcore.Models;
+using AMcore.Helpers;
 
+namespace AMcore
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            throw new NotImplementedException();    
 
-Console.WriteLine("Hello, World!");
+        }
+    }
+}

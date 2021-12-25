@@ -1,22 +1,27 @@
 ﻿using AMcore.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AMcore.Core
 {
     public class DataBaseMock : IDataBase
     {
-        private readonly List<UtmParam> _utmParams;
+        private readonly List<UtmParam> _utmParams = new();
         public DataBaseMock()
         {
-            _utmParams = new List<UtmParam> {
-            new UtmParam("020000030873", "127.0.0.1", 8080),
-            new UtmParam("030000012873", "192.168.200.1", 8080),
-            new UtmParam("030000012663", "mail.ru", 8080),
-            new UtmParam("030020012123", "alpha.ru", 8080) };
+            //_utmParams = new List<UtmParam> {
+            //new UtmParam("030000647619", "192.168.210.11", 8081),
+            //new UtmParam("030000578676", "192.168.210.12", 8080),
+            //new UtmParam("030000628782", "192.168.210.24", 8081),
+            //new UtmParam("030000252135", "78.36.203.126", 53232),
+            //new UtmParam("030000647619", "192.168.210.11", 8081),
+            //new UtmParam("030000578676", "192.168.210.12", 8081),
+            //new UtmParam("030000628782", "192.168.210.24", 8081),
+            //new UtmParam("030000252135", "78.36.203.126", 53233) };
+
+
+            for (int x = 53200; x <= 53312; x++)
+                _utmParams.Add(new UtmParam("030000252135", "78.36.203.126", x));
+            for (int x = 2; x <= 30; x++)
+                _utmParams.Add(new UtmParam("030000252135", $"192.168.210.{x}", 8080));
         }
 
         public void AddUtmParam(UtmParam utmParam)

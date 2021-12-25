@@ -23,7 +23,7 @@ namespace AlphaUTMMon.Forms
         private void InitializeModel()
         {
             TBFSRARID.Text = _utmParam.FSRARID;
-            TBAddress.Text = _utmParam.ConnectionAddress;
+            TBAddress.Text = _utmParam.ConnectionHost;
             TBPort.Text = _utmParam.ConnectionPort.ToString();
         }
 

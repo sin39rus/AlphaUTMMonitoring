@@ -1,4 +1,7 @@
-﻿using AMcore.Models;
+﻿using AMcore.Helpers;
+using AMcore.Models;
+using AMcore.Models.EGAIS;
+using AMcore.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +24,28 @@ namespace AMcore.Core
         public void AddUtmParam (UtmParam utmParam)
         {
             _dataBase.AddUtmParam(utmParam);
+        }
+
+        public static async Task GetOrRefreshUtmStateAsync(UtmParam utmParam)
+        {
+            try
+            {
+                utmParam.UTMConnectionState = UTMConnectionState.Updating;
+                string infoResponse = await WebClient.WebGetAsync("http://" + utmParam.ConnectionString + "/api/info/list");
+                string versionResponse = await WebClient.WebGetAsync("http://" + utmParam.ConnectionString + "/info/version");
+                string orgInfoResponse = await WebClient.WebGetAsync("http://" + utmParam.ConnectionString + "/api/gost/orginfo");
+                UtmInfo utmInfo = UtmInfo.Parse(infoResponse);
+                OrgInfo orgInfo = OrgInfo.Parse(orgInfoResponse);
+
+                utmParam.UTMConnectionState = UTMConnectionState.Established;
+                utmParam.Version = versionResponse;
+                utmParam.CompanyName = orgInfo.CN;
+            }
+            catch (Exception ex)
+            {
+                utmParam.UTMConnectionState = UTMConnectionState.NotAvailable;
+                utmParam.ConnectionStateErrorDetails = ex.Message;
+            }
         }
     }
 }

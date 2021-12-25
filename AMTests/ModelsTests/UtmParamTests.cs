@@ -24,6 +24,8 @@ namespace AMTests.ModelsTests
         [TestMethod]
         [DataRow("020000030843", "127.0.0.1", -1)]
         [DataRow("020000030843", "127.0.0.1", 65536)]
+        [DataRow("020000030843", "", 65536)]
+        [DataRow("020000030843", "  ", 65536)]
         public void UtmParam_NotValidConnetionString_ArgumentException(string fsrarID, string connectionAddress, int connectionPort)
         {
             Assert.ThrowsException<ArgumentException>(() => { _=new UtmParam(fsrarID, connectionAddress, connectionPort); });

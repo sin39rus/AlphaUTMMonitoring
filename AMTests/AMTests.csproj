@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -20,6 +20,12 @@
 
   <ItemGroup>
     <Folder Include="ExtensionsTests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ModelsTests\DataForTest\UtmInfo1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

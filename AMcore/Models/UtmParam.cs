@@ -1,6 +1,5 @@
 ﻿using AMcore.Extensions;
 using AMcore.Models.Enums;
-using System.Net;
 
 namespace AMcore.Models
 {
@@ -14,7 +13,7 @@ namespace AMcore.Models
             FSRARID=fsrarID;
             SetConnectionString(connectionAddress, connectionPort);
         }
-
+        #region Public Properties
         /// <summary>
         /// FSRAR ID
         /// </summary>
@@ -31,31 +30,18 @@ namespace AMcore.Models
                 fsrarID=value;
             }
         }
-
-
         /// <summary>
-        /// Адрес УТМ
+        /// Полный адрес УТМ
         /// </summary>
-        public string ConnectionString => $"{ConnectionAddress}:{ConnectionPort}";
+        public string ConnectionString => $"{ConnectionHost}:{ConnectionPort}";
         /// <summary>
-        /// Адрес
+        /// Хост
         /// </summary>
-        public string? ConnectionAddress { private set; get; }
+        public string? ConnectionHost { private set; get; }
         /// <summary>
         /// Порт
         /// </summary>
         public int ConnectionPort { private set; get; }
-
-        /// <summary>
-        /// Адрес УТМ
-        /// </summary>
-        public void SetConnectionString(string connectionAddress, int connectionPort)
-        {
-            if (connectionPort < 0 || connectionPort > 65535)
-                throw new ArgumentException($"Не допустимая строка подключения.");
-            ConnectionAddress = connectionAddress;
-            ConnectionPort = connectionPort;
-        }
         /// <summary>
         /// Наименование организации
         /// </summary>
@@ -64,6 +50,32 @@ namespace AMcore.Models
         /// Состояние соединения с УТМ
         /// </summary>
         public UTMConnectionState UTMConnectionState { set; get; } = UTMConnectionState.Unknown;
+        /// <summary>
+        /// Понятное описание текущего состояния.
+        /// </summary>
         public string DescriptionConnectionState => this.UTMConnectionState.GetEnumDescription();
+        /// <summary>
+        /// Описание ошибки подключения.
+        /// </summary>
+        public string? ConnectionStateErrorDetails { set; get; }
+        /// <summary>
+        /// Версия УТМ
+        /// </summary>
+        public string? Version { get; set; }
+        #endregion
+
+
+        /// <summary>
+        /// Установить Адрес УТМ
+        /// </summary>
+        public void SetConnectionString(string connectionAddress, int connectionPort)
+        {
+            if (string.IsNullOrWhiteSpace(connectionAddress))
+                throw new ArgumentException($"\"{nameof(connectionAddress)}\" не может быть пустым или содержать только пробел.", nameof(connectionAddress));
+            if (connectionPort < 0 || connectionPort > 65535)
+                throw new ArgumentException($"Не допустимая строка подключения.");
+            ConnectionHost = connectionAddress;
+            ConnectionPort = connectionPort;
+        }
     }
 }
