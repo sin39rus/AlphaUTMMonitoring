@@ -2,11 +2,11 @@
 {
     public static class WebClient
     {
-        public static Task<string> WebGetAsync(string url)
+        public static async Task<string> WebGetAsync(string url)
         {
             if (string.IsNullOrWhiteSpace(url))
                 throw new ArgumentException($"\"{nameof(url)}\" не может быть пустым или содержать только пробел.", nameof(url));
-            return WebGetInternalAsync(url);
+            return await WebGetInternalAsync(url);
         }
         private static async Task<string> WebGetInternalAsync(string url)
         {
