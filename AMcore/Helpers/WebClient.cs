@@ -11,7 +11,7 @@
         private static async Task<string> WebGetInternalAsync(string url)
         {
             HttpClient client = new();
-            client.Timeout = TimeSpan.FromSeconds(3);
+            client.Timeout = TimeSpan.FromSeconds(10);
             try
             {
                 HttpResponseMessage response = await client.GetAsync(url);
