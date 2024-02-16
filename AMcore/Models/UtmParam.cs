@@ -5,12 +5,12 @@ namespace AMcore.Models
 {
     public class UtmParam
     {
-        private string fsrarID = string.Empty;
+        private string _fsrarID = string.Empty;
 
         public UtmParam() { }
         public UtmParam(string fsrarID, string connectionAddress, int connectionPort)
         {
-            FSRARID=fsrarID;
+            _fsrarID = fsrarID;
             SetConnectionString(connectionAddress, connectionPort);
         }
         #region Public Properties
@@ -19,7 +19,7 @@ namespace AMcore.Models
         /// </summary>
         public string FSRARID
         {
-            get => fsrarID; set
+            get => _fsrarID; set
             {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("Пустое значение ФСРАР ID");
@@ -27,7 +27,7 @@ namespace AMcore.Models
                     throw new ArgumentException($"Не корректная длинна ФСРАР ID. Значение: {value}");
                 if (value.Any(c => !char.IsDigit(c)))
                     throw new ArgumentException($"ФСРАР ID содержит не допустимые символы. Значение: {value}");
-                fsrarID=value;
+                _fsrarID=value;
             }
         }
         /// <summary>

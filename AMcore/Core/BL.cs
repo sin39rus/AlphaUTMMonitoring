@@ -38,6 +38,7 @@ namespace AMcore.Core
                 OrgInfo orgInfo = OrgInfo.Parse(orgInfoResponse);
 
                 utmParam.UTMConnectionState = UTMConnectionState.Established;
+                utmParam.FSRARID = utmInfo.OwnerId;
                 utmParam.Version = versionResponse;
                 utmParam.CompanyName = orgInfo.CN;
             }

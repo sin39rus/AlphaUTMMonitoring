@@ -7,7 +7,7 @@ namespace AMcore
     {
         public static void Main()
         {
-            throw new NotImplementedException();    
+            
 
         }
     }
