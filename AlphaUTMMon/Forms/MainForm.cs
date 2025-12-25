@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,39 @@ namespace AlphaUTMMon.Forms
         public MainForm(BL bl)
         {
             InitializeComponent();
+            DataGrid.MouseDown += DataGrid_MouseDown; ;
+
             _bl = bl;
             utmParamsBindingSource.DataSource = _bl.UtmParams;
         }
+
+        private void DataGrid_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                // Получаем информацию о строке и столбце под курсором
+                var hitTestInfo = DataGrid.HitTest(e.X, e.Y);
+
+                if (hitTestInfo.RowIndex >= 0)
+                {
+                    if (DataGrid.SelectedRows.Count == 1)
+                    {
+
+                        // Снимаем выделение со всех строк
+                        DataGrid.ClearSelection();
+                        // Выделяем строку, по которой щелкнули
+                        DataGrid.Rows[hitTestInfo.RowIndex].Selected = true;
+
+                        // Устанавливаем текущую ячейку
+                        DataGrid.CurrentCell = DataGrid.Rows[hitTestInfo.RowIndex].Cells[hitTestInfo.ColumnIndex];
+                    }
+
+                    // Открываем контекстное меню вручную
+                    contextMenuStrip1.Show(DataGrid, e.Location);
+                }
+            }
+        }
+
 
         private void TSB_Add_Click(object sender, EventArgs e)
         {
@@ -51,7 +82,7 @@ namespace AlphaUTMMon.Forms
                     }
                     RefreshDataTable();
                     _tokenSource = new CancellationTokenSource();
-                    Parallel.ForEach(_bl.UtmParams, new ParallelOptions() { MaxDegreeOfParallelism = 20, CancellationToken  = _tokenSource.Token }, param =>
+                    Parallel.ForEach(_bl.UtmParams, new ParallelOptions() { MaxDegreeOfParallelism = 20, CancellationToken = _tokenSource.Token }, param =>
                     {
                         Invoke(() => { toolStripProgressBar1.PerformStep(); });
                         BL.GetOrRefreshUtmStateAsync(param).Wait();
@@ -100,12 +131,29 @@ namespace AlphaUTMMon.Forms
         {
             _tokenSource?.Cancel();
         }
-        private void DataGrid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+
+        private void TsmiConnect_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex == -1)
-                return;
-            DataGrid.ClearSelection();
-            DataGrid.Rows[e.RowIndex].Selected = true;
+            foreach (DataGridViewRow row in DataGrid.SelectedRows)
+            {
+                if (row?.DataBoundItem is UtmParam param)
+                {
+                    string puttyPath = @"C:\Program Files\PuTTY\putty.exe"; // Путь к putty.exe
+                    string host = param.ConnectionHost;
+                    string username = "root";
+                    string password = "Rkeeper776417";
+
+                    // Настройка процесса для запуска PuTTY
+                    ProcessStartInfo processInfo = new ProcessStartInfo
+                    {
+                        FileName = puttyPath,
+                        Arguments = $"{username}@{host} -pw {password}",
+                        UseShellExecute = false, // Важно для перенаправления ввода/вывода
+                        CreateNoWindow = true    // Показать окно PuTTY (можно изменить на true, если не нужно окно)
+                    };
+                    Process.Start(processInfo);
+                }
+            }
         }
     }
 }

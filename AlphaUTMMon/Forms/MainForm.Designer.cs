@@ -28,236 +28,240 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.TSBIStopUpdateStop = new System.Windows.Forms.ToolStripSplitButton();
-            this.DataGrid = new System.Windows.Forms.DataGridView();
-            this.utmParamsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.TSB_Add = new System.Windows.Forms.ToolStripButton();
-            this.TSB_Edit = new System.Windows.Forms.ToolStripButton();
-            this.TSB_Refresh = new System.Windows.Forms.ToolStripButton();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConnectionString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescriptionConnectionStateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConnectionStateErrorDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utmParamsBindingSource)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            this.SuspendLayout();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            toolStripContainer1 = new ToolStripContainer();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            toolStripProgressBar1 = new ToolStripProgressBar();
+            TSBIStopUpdateStop = new ToolStripSplitButton();
+            DataGrid = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            Version = new DataGridViewTextBoxColumn();
+            ConnectionString = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            DescriptionConnectionStateColumn = new DataGridViewTextBoxColumn();
+            ConnectionStateErrorDetails = new DataGridViewTextBoxColumn();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            tsmiConnect = new ToolStripMenuItem();
+            utmParamsBindingSource = new BindingSource(components);
+            toolStrip1 = new ToolStrip();
+            TSB_Add = new ToolStripButton();
+            TSB_Edit = new ToolStripButton();
+            TSB_Refresh = new ToolStripButton();
+            toolStripContainer1.BottomToolStripPanel.SuspendLayout();
+            toolStripContainer1.ContentPanel.SuspendLayout();
+            toolStripContainer1.TopToolStripPanel.SuspendLayout();
+            toolStripContainer1.SuspendLayout();
+            statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
+            contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)utmParamsBindingSource).BeginInit();
+            toolStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // toolStripContainer1
             // 
             // 
             // toolStripContainer1.BottomToolStripPanel
             // 
-            this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.statusStrip1);
+            toolStripContainer1.BottomToolStripPanel.Controls.Add(statusStrip1);
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.DataGrid);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 425);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 450);
-            this.toolStripContainer1.TabIndex = 0;
-            this.toolStripContainer1.Text = "toolStripContainer1";
+            toolStripContainer1.ContentPanel.Controls.Add(DataGrid);
+            toolStripContainer1.ContentPanel.Size = new Size(800, 425);
+            toolStripContainer1.Dock = DockStyle.Fill;
+            toolStripContainer1.Location = new Point(0, 0);
+            toolStripContainer1.Name = "toolStripContainer1";
+            toolStripContainer1.Size = new Size(800, 450);
+            toolStripContainer1.TabIndex = 0;
+            toolStripContainer1.Text = "toolStripContainer1";
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip1);
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripProgressBar1,
-            this.TSBIStopUpdateStop});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 0);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(451, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.Visible = false;
+            statusStrip1.Dock = DockStyle.None;
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, toolStripProgressBar1, TSBIStopUpdateStop });
+            statusStrip1.Location = new Point(0, 0);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(451, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
+            statusStrip1.Visible = false;
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(166, 17);
-            this.toolStripStatusLabel1.Text = "Обновление состояния УТМ:";
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(166, 17);
+            toolStripStatusLabel1.Text = "Обновление состояния УТМ:";
             // 
             // toolStripProgressBar1
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(200, 16);
-            this.toolStripProgressBar1.Step = 1;
+            toolStripProgressBar1.Name = "toolStripProgressBar1";
+            toolStripProgressBar1.Size = new Size(200, 16);
+            toolStripProgressBar1.Step = 1;
             // 
             // TSBIStopUpdateStop
             // 
-            this.TSBIStopUpdateStop.Image = ((System.Drawing.Image)(resources.GetObject("TSBIStopUpdateStop.Image")));
-            this.TSBIStopUpdateStop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TSBIStopUpdateStop.Name = "TSBIStopUpdateStop";
-            this.TSBIStopUpdateStop.Size = new System.Drawing.Size(66, 20);
-            this.TSBIStopUpdateStop.Text = "Стоп";
-            this.TSBIStopUpdateStop.ButtonClick += new System.EventHandler(this.TSBIStopUpdateStop_ButtonClick);
+            TSBIStopUpdateStop.Image = (Image)resources.GetObject("TSBIStopUpdateStop.Image");
+            TSBIStopUpdateStop.ImageTransparentColor = Color.Magenta;
+            TSBIStopUpdateStop.Name = "TSBIStopUpdateStop";
+            TSBIStopUpdateStop.Size = new Size(66, 20);
+            TSBIStopUpdateStop.Text = "Стоп";
+            TSBIStopUpdateStop.ButtonClick += TSBIStopUpdateStop_ButtonClick;
             // 
             // DataGrid
             // 
-            this.DataGrid.AllowUserToAddRows = false;
-            this.DataGrid.AllowUserToDeleteRows = false;
-            this.DataGrid.AllowUserToOrderColumns = true;
-            this.DataGrid.AllowUserToResizeRows = false;
-            this.DataGrid.AutoGenerateColumns = false;
-            this.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.Version,
-            this.ConnectionString,
-            this.dataGridViewTextBoxColumn2,
-            this.DescriptionConnectionStateColumn,
-            this.ConnectionStateErrorDetails});
-            this.DataGrid.DataSource = this.utmParamsBindingSource;
-            this.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.DataGrid.Name = "DataGrid";
-            this.DataGrid.ReadOnly = true;
-            this.DataGrid.RowHeadersVisible = false;
-            this.DataGrid.RowTemplate.Height = 25;
-            this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGrid.Size = new System.Drawing.Size(800, 425);
-            this.DataGrid.TabIndex = 0;
-            this.DataGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGrid_CellMouseClick);
-            // 
-            // utmParamsBindingSource
-            // 
-            this.utmParamsBindingSource.DataSource = typeof(AMcore.Models.UtmParam);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSB_Add,
-            this.TSB_Edit,
-            this.TSB_Refresh});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(81, 25);
-            this.toolStrip1.TabIndex = 0;
-            // 
-            // TSB_Add
-            // 
-            this.TSB_Add.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TSB_Add.Image = ((System.Drawing.Image)(resources.GetObject("TSB_Add.Image")));
-            this.TSB_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TSB_Add.Name = "TSB_Add";
-            this.TSB_Add.Size = new System.Drawing.Size(23, 22);
-            this.TSB_Add.Text = "Add";
-            this.TSB_Add.Click += new System.EventHandler(this.TSB_Add_Click);
-            // 
-            // TSB_Edit
-            // 
-            this.TSB_Edit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TSB_Edit.Image = ((System.Drawing.Image)(resources.GetObject("TSB_Edit.Image")));
-            this.TSB_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TSB_Edit.Name = "TSB_Edit";
-            this.TSB_Edit.Size = new System.Drawing.Size(23, 22);
-            this.TSB_Edit.Text = "toolStripButton1";
-            // 
-            // TSB_Refresh
-            // 
-            this.TSB_Refresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TSB_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("TSB_Refresh.Image")));
-            this.TSB_Refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TSB_Refresh.Name = "TSB_Refresh";
-            this.TSB_Refresh.Size = new System.Drawing.Size(23, 22);
-            this.TSB_Refresh.Text = "Обновить стостояние";
-            this.TSB_Refresh.Click += new System.EventHandler(this.TSB_Refresh_Click);
+            DataGrid.AllowUserToAddRows = false;
+            DataGrid.AllowUserToDeleteRows = false;
+            DataGrid.AllowUserToOrderColumns = true;
+            DataGrid.AllowUserToResizeRows = false;
+            DataGrid.AutoGenerateColumns = false;
+            DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGrid.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, Version, ConnectionString, dataGridViewTextBoxColumn2, DescriptionConnectionStateColumn, ConnectionStateErrorDetails });
+            DataGrid.DataSource = utmParamsBindingSource;
+            DataGrid.Dock = DockStyle.Fill;
+            DataGrid.Location = new Point(0, 0);
+            DataGrid.Name = "DataGrid";
+            DataGrid.ReadOnly = true;
+            DataGrid.RowHeadersVisible = false;
+            DataGrid.RowTemplate.Height = 25;
+            DataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGrid.Size = new Size(800, 425);
+            DataGrid.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "FSRARID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "FSRARID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 151;
+            dataGridViewTextBoxColumn1.DataPropertyName = "FSRARID";
+            dataGridViewTextBoxColumn1.HeaderText = "FSRARID";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Width = 151;
             // 
             // Version
             // 
-            this.Version.DataPropertyName = "Version";
-            this.Version.HeaderText = "Version";
-            this.Version.Name = "Version";
-            this.Version.ReadOnly = true;
+            Version.DataPropertyName = "Version";
+            Version.HeaderText = "Version";
+            Version.Name = "Version";
+            Version.ReadOnly = true;
             // 
             // ConnectionString
             // 
-            this.ConnectionString.DataPropertyName = "ConnectionString";
-            this.ConnectionString.HeaderText = "ConnectionString";
-            this.ConnectionString.Name = "ConnectionString";
-            this.ConnectionString.ReadOnly = true;
-            this.ConnectionString.Width = 151;
+            ConnectionString.DataPropertyName = "ConnectionString";
+            ConnectionString.HeaderText = "ConnectionString";
+            ConnectionString.Name = "ConnectionString";
+            ConnectionString.ReadOnly = true;
+            ConnectionString.Width = 151;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CompanyName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CompanyName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 152;
+            dataGridViewTextBoxColumn2.DataPropertyName = "CompanyName";
+            dataGridViewTextBoxColumn2.HeaderText = "CompanyName";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.Width = 152;
             // 
             // DescriptionConnectionStateColumn
             // 
-            this.DescriptionConnectionStateColumn.DataPropertyName = "DescriptionConnectionState";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DescriptionConnectionStateColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.DescriptionConnectionStateColumn.HeaderText = "Состояние соединения";
-            this.DescriptionConnectionStateColumn.Name = "DescriptionConnectionStateColumn";
-            this.DescriptionConnectionStateColumn.ReadOnly = true;
-            this.DescriptionConnectionStateColumn.Width = 152;
+            DescriptionConnectionStateColumn.DataPropertyName = "DescriptionConnectionState";
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(128, 255, 255);
+            DescriptionConnectionStateColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            DescriptionConnectionStateColumn.HeaderText = "Состояние соединения";
+            DescriptionConnectionStateColumn.Name = "DescriptionConnectionStateColumn";
+            DescriptionConnectionStateColumn.ReadOnly = true;
+            DescriptionConnectionStateColumn.Width = 152;
             // 
             // ConnectionStateErrorDetails
             // 
-            this.ConnectionStateErrorDetails.DataPropertyName = "ConnectionStateErrorDetails";
-            this.ConnectionStateErrorDetails.HeaderText = "ConnectionStateErrorDetails";
-            this.ConnectionStateErrorDetails.Name = "ConnectionStateErrorDetails";
-            this.ConnectionStateErrorDetails.ReadOnly = true;
-            this.ConnectionStateErrorDetails.Width = 300;
+            ConnectionStateErrorDetails.DataPropertyName = "ConnectionStateErrorDetails";
+            ConnectionStateErrorDetails.HeaderText = "ConnectionStateErrorDetails";
+            ConnectionStateErrorDetails.Name = "ConnectionStateErrorDetails";
+            ConnectionStateErrorDetails.ReadOnly = true;
+            ConnectionStateErrorDetails.Width = 300;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsmiConnect });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(196, 26);
+            // 
+            // tsmiConnect
+            // 
+            tsmiConnect.Name = "tsmiConnect";
+            tsmiConnect.Size = new Size(195, 22);
+            tsmiConnect.Text = "Подключиться (putty)";
+            tsmiConnect.Click += TsmiConnect_Click;
+            // 
+            // utmParamsBindingSource
+            // 
+            utmParamsBindingSource.DataSource = typeof(AMcore.Models.UtmParam);
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Dock = DockStyle.None;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { TSB_Add, TSB_Edit, TSB_Refresh });
+            toolStrip1.Location = new Point(3, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(81, 25);
+            toolStrip1.TabIndex = 0;
+            // 
+            // TSB_Add
+            // 
+            TSB_Add.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            TSB_Add.Image = (Image)resources.GetObject("TSB_Add.Image");
+            TSB_Add.ImageTransparentColor = Color.Magenta;
+            TSB_Add.Name = "TSB_Add";
+            TSB_Add.Size = new Size(23, 22);
+            TSB_Add.Text = "Add";
+            TSB_Add.Click += TSB_Add_Click;
+            // 
+            // TSB_Edit
+            // 
+            TSB_Edit.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            TSB_Edit.Image = (Image)resources.GetObject("TSB_Edit.Image");
+            TSB_Edit.ImageTransparentColor = Color.Magenta;
+            TSB_Edit.Name = "TSB_Edit";
+            TSB_Edit.Size = new Size(23, 22);
+            TSB_Edit.Text = "toolStripButton1";
+            // 
+            // TSB_Refresh
+            // 
+            TSB_Refresh.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            TSB_Refresh.Image = (Image)resources.GetObject("TSB_Refresh.Image");
+            TSB_Refresh.ImageTransparentColor = Color.Magenta;
+            TSB_Refresh.Name = "TSB_Refresh";
+            TSB_Refresh.Size = new Size(23, 22);
+            TSB_Refresh.Text = "Обновить стостояние";
+            TSB_Refresh.Click += TSB_Refresh_Click;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toolStripContainer1);
-            this.Name = "MainForm";
-            this.Text = "MainForm";
-            this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.BottomToolStripPanel.PerformLayout();
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.PerformLayout();
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utmParamsBindingSource)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(toolStripContainer1);
+            Name = "MainForm";
+            Text = "MainForm";
+            toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
+            toolStripContainer1.BottomToolStripPanel.PerformLayout();
+            toolStripContainer1.ContentPanel.ResumeLayout(false);
+            toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
+            toolStripContainer1.TopToolStripPanel.PerformLayout();
+            toolStripContainer1.ResumeLayout(false);
+            toolStripContainer1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)utmParamsBindingSource).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            ResumeLayout(false);
 
         }
 
@@ -280,5 +284,7 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn DescriptionConnectionStateColumn;
         private DataGridViewTextBoxColumn ConnectionStateErrorDetails;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem tsmiConnect;
     }
 }
