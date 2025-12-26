@@ -64,6 +64,11 @@ namespace AMcore.Models
         public string? Version { get; set; }
         #endregion
 
+        /// <summary>Количество входящих документов</summary>
+        public int IncomingDocumentsCount { get; set; }
+
+        /// <summary>Количество исходящих документов</summary>
+        public int OutgoingDocumentsCount { get; set; }
 
         /// <summary>
         /// Установить Адрес УТМ

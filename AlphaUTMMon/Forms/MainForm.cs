@@ -68,6 +68,11 @@ namespace AlphaUTMMon.Forms
         }
         private async void TSB_Refresh_Click(object sender, EventArgs e)
         {
+            await OldMethod();
+        }
+
+        private async Task OldMethod()
+        {
             statusStrip1.Visible = true;
             toolStripProgressBar1.Maximum = _bl.UtmParams.Count;
             toolStripProgressBar1.Value = 0;

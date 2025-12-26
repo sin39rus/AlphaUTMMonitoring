@@ -52,6 +52,8 @@
             tsmiConnect = new ToolStripMenuItem();
             tsmiOpenVpn = new ToolStripMenuItem();
             tsmiPing = new ToolStripMenuItem();
+            IncomingDocumentsCount = new DataGridViewTextBoxColumn();
+            OutgoingDocumentsCount = new DataGridViewTextBoxColumn();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -125,7 +127,7 @@
             DataGrid.AllowUserToResizeRows = false;
             DataGrid.AutoGenerateColumns = false;
             DataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, Version, ConnectionString, dataGridViewTextBoxColumn2, DescriptionConnectionStateColumn, ConnectionStateErrorDetails });
+            DataGrid.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, Version, ConnectionString, dataGridViewTextBoxColumn2, DescriptionConnectionStateColumn, ConnectionStateErrorDetails, IncomingDocumentsCount, OutgoingDocumentsCount });
             DataGrid.DataSource = utmParamsBindingSource;
             DataGrid.Dock = DockStyle.Fill;
             DataGrid.Location = new Point(0, 0);
@@ -232,7 +234,7 @@
             // 
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsmiConnect, tsmiOpenVpn, tsmiPing });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(196, 92);
+            contextMenuStrip1.Size = new Size(196, 70);
             // 
             // tsmiConnect
             // 
@@ -254,6 +256,20 @@
             tsmiPing.Size = new Size(195, 22);
             tsmiPing.Text = "Ping";
             tsmiPing.Click += TsmiPing_Click;
+            // 
+            // IncomingDocumentsCount
+            // 
+            IncomingDocumentsCount.DataPropertyName = "IncomingDocumentsCount";
+            IncomingDocumentsCount.HeaderText = "Количество входящих документов";
+            IncomingDocumentsCount.Name = "IncomingDocumentsCount";
+            IncomingDocumentsCount.ReadOnly = true;
+            // 
+            // OutgoingDocumentsCount
+            // 
+            OutgoingDocumentsCount.DataPropertyName = "OutgoingDocumentsCount";
+            OutgoingDocumentsCount.HeaderText = "Количество исходящих документов";
+            OutgoingDocumentsCount.Name = "OutgoingDocumentsCount";
+            OutgoingDocumentsCount.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -304,5 +320,7 @@
         private ToolStripMenuItem tsmiConnect;
         private ToolStripMenuItem tsmiOpenVpn;
         private ToolStripMenuItem tsmiPing;
+        private DataGridViewTextBoxColumn IncomingDocumentsCount;
+        private DataGridViewTextBoxColumn OutgoingDocumentsCount;
     }
 }
