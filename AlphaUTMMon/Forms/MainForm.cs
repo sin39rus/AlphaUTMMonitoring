@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace AlphaUTMMon.Forms
 {
@@ -150,6 +151,34 @@ namespace AlphaUTMMon.Forms
                         Arguments = $"{username}@{host} -pw {password}",
                         UseShellExecute = false, // Важно для перенаправления ввода/вывода
                         CreateNoWindow = true    // Показать окно PuTTY (можно изменить на true, если не нужно окно)
+                    };
+                    Process.Start(processInfo);
+                }
+            }
+        }
+
+        private void TsmiOpenVpn_Click(object sender, EventArgs e)
+        {
+            if (DataGrid.SelectedRows[0]?.DataBoundItem is UtmParam param)
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = $"http://{param.ConnectionString}",
+                    UseShellExecute = true
+                });
+        }
+
+        private void TsmiPing_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in DataGrid.SelectedRows)
+            {
+                if (row?.DataBoundItem is UtmParam param)
+                {
+                    ProcessStartInfo processInfo = new ProcessStartInfo
+                    {
+                        FileName = "ping",
+                        Arguments = $"{param.ConnectionHost} -t",
+                        UseShellExecute = false,
+                        CreateNoWindow = false // Показать окно консоли
                     };
                     Process.Start(processInfo);
                 }

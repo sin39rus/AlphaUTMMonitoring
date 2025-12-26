@@ -32,7 +32,6 @@ namespace AMcore.Core
             _utmParams.Add(new UtmParam("", $"10.180.180.32", 8080));
 
             _utmParams.Add(new UtmParam("", $"10.180.180.28", 8080));
-            _utmParams.Add(new UtmParam("", $"10.180.180.84", 8080));
 
             _utmParams.Add(new UtmParam("", $"10.180.180.63", 8080));
             _utmParams.Add(new UtmParam("", $"10.180.180.62", 8080));

@@ -43,22 +43,24 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             DescriptionConnectionStateColumn = new DataGridViewTextBoxColumn();
             ConnectionStateErrorDetails = new DataGridViewTextBoxColumn();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            tsmiConnect = new ToolStripMenuItem();
             utmParamsBindingSource = new BindingSource(components);
             toolStrip1 = new ToolStrip();
             TSB_Add = new ToolStripButton();
             TSB_Edit = new ToolStripButton();
             TSB_Refresh = new ToolStripButton();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            tsmiConnect = new ToolStripMenuItem();
+            tsmiOpenVpn = new ToolStripMenuItem();
+            tsmiPing = new ToolStripMenuItem();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
             statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGrid).BeginInit();
-            contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)utmParamsBindingSource).BeginInit();
             toolStrip1.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // toolStripContainer1
@@ -184,19 +186,6 @@
             ConnectionStateErrorDetails.ReadOnly = true;
             ConnectionStateErrorDetails.Width = 300;
             // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsmiConnect });
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(196, 26);
-            // 
-            // tsmiConnect
-            // 
-            tsmiConnect.Name = "tsmiConnect";
-            tsmiConnect.Size = new Size(195, 22);
-            tsmiConnect.Text = "Подключиться (putty)";
-            tsmiConnect.Click += TsmiConnect_Click;
-            // 
             // utmParamsBindingSource
             // 
             utmParamsBindingSource.DataSource = typeof(AMcore.Models.UtmParam);
@@ -239,6 +228,33 @@
             TSB_Refresh.Text = "Обновить стостояние";
             TSB_Refresh.Click += TSB_Refresh_Click;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { tsmiConnect, tsmiOpenVpn, tsmiPing });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(196, 92);
+            // 
+            // tsmiConnect
+            // 
+            tsmiConnect.Name = "tsmiConnect";
+            tsmiConnect.Size = new Size(195, 22);
+            tsmiConnect.Text = "Подключиться (putty)";
+            tsmiConnect.Click += TsmiConnect_Click;
+            // 
+            // tsmiOpenVpn
+            // 
+            tsmiOpenVpn.Name = "tsmiOpenVpn";
+            tsmiOpenVpn.Size = new Size(195, 22);
+            tsmiOpenVpn.Text = "Открыть УТМ";
+            tsmiOpenVpn.Click += TsmiOpenVpn_Click;
+            // 
+            // tsmiPing
+            // 
+            tsmiPing.Name = "tsmiPing";
+            tsmiPing.Size = new Size(195, 22);
+            tsmiPing.Text = "Ping";
+            tsmiPing.Click += TsmiPing_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -257,10 +273,10 @@
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DataGrid).EndInit();
-            contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)utmParamsBindingSource).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
 
         }
@@ -286,5 +302,7 @@
         private DataGridViewTextBoxColumn ConnectionStateErrorDetails;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem tsmiConnect;
+        private ToolStripMenuItem tsmiOpenVpn;
+        private ToolStripMenuItem tsmiPing;
     }
 }
